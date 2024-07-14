@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 <style>
+.topnav{
+    background-color: #333;
+    position: sticky;
+    z-index: -1;
+}
+.topnav a{
+    float: left;
+    text-align: center;
+    padding: 10px 12px;
+    color: #333;
+    font-size: 17px;
+    text-decoration: none;
+}
+.topnav a:hover{
+    background-color: #ddd;
+    color: black;
+}
+.topnav a:active{
+    background-color: #04AA6D;
+    color: white;
+}
+html{
+    margin: 0, auto;
+}
 body{
     background-color: #fff1de;
-    /* background-image: url("pup-logo.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed; */
-    
+    padding: 0;
+    margin: 0;
 }
 #title {
     color: color-mix(in srgb, plum, pink);
     text-align: center;
     font-size: 75px;
-    margin-top: 50px;
     font-family: "Sofia", sans-serif;
     text-shadow: 2px 2px 6px grey;
-    
+    padding: 60px;
 }
 #bgimg{
     pointer-events: none;
@@ -34,22 +55,113 @@ body{
 .container{
     text-align: center;
 }
+#footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+.btn {
+  --color1: #1a8516;
+  --color2: #236b19;
+  perspective: 1000px;
+  padding: 1em 1em;
+  background: linear-gradient(var(--color1), var(--color2));
+  border: none;
+  outline: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 0 10px 10px #000;
+  cursor: pointer;
+  transform: rotateX(70deg) rotateZ(30deg);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.btn::before {
+  content: "";
+  width: 100%;
+  height: 15px;
+  background-color: var(--color2);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+}
+
+.btn::after {
+  content: "";
+  width: 15px;
+  height: 100%;
+  background-color: var(--color1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotateY(-90deg);
+  transform-origin: right;
+}
+
+.btn:hover {
+  transform: rotateX(30deg) rotateZ(0);
+}
+
 </style>
 <title>chdxtn on GitHub</title>
 </head>
 <body>
-
 <div class="container">
     <div id="bg">
         <img src="pup-logo.png" id="bgimg"/>
     </div>
+
+    <div class="topnav">
+        <a href="#" onclick="return show('cool','hot','down','xexy');" title="CHDXTN's Home">Home</a>
+        <a href="#" onclick="return show('hot','cool','down','xexy');">Hot</a>
+        <a href="#" onclick="return show('down','cool','hot','xexy');">Down</a>
+        <a href="#" onclick="return show('xexy','cool','hot','down');">Xexy</a>
+    </div>
+
     <div id="title">
         <h1>I AM CHDXTN</h1>
     </div>
-    <div id="intro">
+
+    <div id="cool" class="page">
         <p>I AM COOL, HOT, DOWN, XEXY, TERRIFIC, AND NICE.</p>
+        <input value="ㅤ" disabled="false">
+        <p>My favorite color is <del>blue</del> <ins>red</ins>!</p>
+        <p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy text (Windows).</p>
+        <label for="file">Downloading progress:</label>
+        <progress id="file" value="32" max="100"> 32% </progress>
+        <br>
+        <button class="btn">3D button</button>
     </div>
-    <h1>toottlkaljdf</h1>
+
+    <div id="hot" class="page" style="display: none;">
+        <img src="hot.jpg" alt="hot" width="810" height="520">
+    </div>
+
+    <div id="down" class="page" style="display: none;">
+        <img src="down.jpg" alt="down" width="670" height="922">
+    </div>
+
+    <div id="xexy" class="page" style="display: none;">
+        <img src="xexy.jpg" alt="hot" width="864" height="380">
+    </div>
+
+    <div id="footer">
+        <h1>copyright 2024 mr. CHDXTN</h1>
+    </div>
 </div>
+<script>
+function show(shown, hidden1, hidden2, hidden3) {
+  document.getElementById(shown).style.display='block';
+  document.getElementById(hidden1).style.display='none';
+  document.getElementById(hidden2).style.display='none';
+  document.getElementById(hidden3).style.display='none';
+  return false;
+}
+</script>
 </body>
 </html>
